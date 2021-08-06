@@ -2,7 +2,7 @@
 
 
 Code Smells: 
-  Is there 
+  Is there.... 
   
   Unsafe Assignment of DOM Elements?
   -  Binding with "...innerHTML = untrustedData"?
@@ -39,6 +39,9 @@ Exercises to Practice Your Skillz!
 
 BUGPOC XSS Challenge: 
 - https://arwildo.medium.com/injects-a-dom-based-xss-on-angular-app-bugpoc-2020-xss-challenge-e88b1ff221e
+
+God-tier Resources:
+https://owasp.org/www-pdf-archive/Benelus_day_20161125_S_Lekies_Securing_AngularJS_Applications.pdf <- Amazing code examples (how to do things correctly & incorrectly)
 
 Resources:
 https://owasp.org/www-chapter-london/assets/slides/OWASPLondon20170727_AngularJS.pdf
