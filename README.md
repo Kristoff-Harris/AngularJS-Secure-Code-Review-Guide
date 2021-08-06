@@ -15,7 +15,8 @@ Code Smells:
   
   Sandbox Escapes?
   
-  
+Automated Detection using a Linter:
+https://github.com/LewisArdern/eslint-plugin-angularjs-security-rules/tree/master/tests/rules 
 
 
 
