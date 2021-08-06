@@ -7,8 +7,15 @@ Code Smells:
   Unsafe Assignment of DOM Elements?
   -  Binding with "...innerHTML = untrustedData"?
   
+  
   Untrusted Input assigned directly to DOM element via an angular.element
   -  Developer needs to sanitize input prior to leveraging this Angular JQuery'ish assignment 
+
+  Server-Side Template Injection?
+  
+  Sandbox Escapes?
+  
+  
 
 
 
@@ -34,3 +41,6 @@ BUGPOC XSS Challenge:
 
 Resources:
 https://owasp.org/www-chapter-london/assets/slides/OWASPLondon20170727_AngularJS.pdf
+https://blog.nvisium.com/angular-for-pentesters-part-1
+https://blog.nvisium.com/angular-for-pentesters-part-2
+
