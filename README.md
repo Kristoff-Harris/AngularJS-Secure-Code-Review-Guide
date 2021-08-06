@@ -1,6 +1,7 @@
 # AngularJS Secure Code Review Guide
 
 Expressions are evaluated against the scope of the corresponding controller
+- allows for writing a subset of javascript
 
 Directives are markers for enriching HTML with custom functionallity 
 
@@ -10,6 +11,36 @@ Directives are markers for enriching HTML with custom functionallity
 // Directive as an attribute
 <div person name="expression"></div>
 
+Coding Principles: 
+- Manual output encoding in a complex project is doomed to fail (too complex)!
+
+
+How Strict Contextual Auto Escaping works....
+...within the controller...
+$scope.url = <user-controlled>;
+ 
+...within the view....
+ <!-- url gets auto-encoded and validated -->
+  <iframe = ng-src="{{url}}"></iframe>
+
+  what does ng-bind-html do?
+  - sanitizes all JS from the HTML  string (just like DOM purify)
+
+Types of Security Bugs for AngularJS Apps:
+  SSTI (Server-Side Template Injection)
+    Angular is Client-side framework....
+    - logic is all implemented in JS
+    - Server is the mechanism to store data and code
+    - Server must not generate temples based on user input
+    
+    ANY TEMPLATE RECEIVED FROM THE SERVER IS CONSIDERED TRUSTED
+  
+    Pitfall #1: php htmlentities does not support "expressions" (it doesn't know how {{}} will be treated)
+  
+    We could write any expression and have it execute within the scope of the controller....
+    Most big apps have a lot of functionality which an attacker could use to do harm.... {{deleteUserAccount()}}
+  
+  
 Code Smells: 
   Is there.... 
   
@@ -21,6 +52,8 @@ Code Smells:
   -  Developer needs to sanitize input prior to leveraging this Angular JQuery'ish assignment 
 
   Server-Side Template Injection?
+    - Are templates being created dynamically server-side where an attacker could inject a malicious expression which would then execute under 
+    the client's context?
   
   Sandbox Escapes?
   
