@@ -48,3 +48,8 @@ https://owasp.org/www-chapter-london/assets/slides/OWASPLondon20170727_AngularJS
 https://blog.nvisium.com/angular-for-pentesters-part-1
 https://blog.nvisium.com/angular-for-pentesters-part-2
 
+Best Practice Docs:
+https://angularcodereview.com/angularjs/
+
+
+
