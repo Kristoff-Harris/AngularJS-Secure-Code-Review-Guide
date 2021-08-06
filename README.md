@@ -1,5 +1,14 @@
 # AngularJS Secure Code Review Guide
 
+Expressions are evaluated against the scope of the corresponding controller
+
+Directives are markers for enriching HTML with custom functionallity 
+
+// Directive as a tag
+<person name="expression"></person>
+
+// Directive as an attribute
+<div person name="expression"></div>
 
 Code Smells: 
   Is there.... 
@@ -17,6 +26,17 @@ Code Smells:
   
 Automated Detection using a Linter:
 https://github.com/LewisArdern/eslint-plugin-angularjs-security-rules/tree/master/tests/rules 
+
+
+
+Types of Vulnerabilities and How To Exploit Them: 
+
+Mixed Context: HTML + URL 
+<?php 
+  echo "<a href = " . encodeForHTML(validateUrl($_GET['url'])) . ">link</a>;
+?>
+^ this is vuln to XSS since we know href attributes support JavaScript URL's 
+This allows for an attacker to write javascript:alert(1) and still be successful
 
 
 
